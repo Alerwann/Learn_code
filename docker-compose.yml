@@ -61,6 +61,21 @@ services:
     networks:
       - codelearn_net
 
+  mongo-express:
+    image: mongo-express:latest
+    container_name: codelearn_mongo_express
+    restart: unless-stopped
+    environment:
+      ME_CONFIG_MONGODB_URL: mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@mongodb:27017/?authSource=admin
+      ME_CONFIG_BASICAUTH: 'false'
+    ports:
+      - '8081:8081'
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    networks:
+      - codelearn_net
+
   backend:
     build:
       context: ./backend
