@@ -1,3 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import 'tailwindcss';
+
+@keyframes pulse {
+  50% {
+    opacity: 0;
+  }
+}
+
+@theme inline {
+  /* Animations */
+  --animate-pulse: pulse 2s infinite;
+}
