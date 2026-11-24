@@ -1,4 +1,5 @@
 from functools import lru_cache
+
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -18,7 +19,7 @@ class Settings(BaseSettings):
     MYSQL_PORT: int = 3306
     MYSQL_DATABASE: str = "codelearn"
     MYSQL_USER: str = "Learner"
-    MYSQL_PASSWORD: str 
+    MYSQL_PASSWORD: str
 
     # MongoDB (PyMongo)
     MONGO_HOST: str = "mongo"

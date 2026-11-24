@@ -1,9 +1,9 @@
 from collections.abc import Generator
 from urllib.parse import quote_plus
-from pymongo import MongoClient
-from pymongo.database import Database
 
 from app.core.config import settings
+from pymongo import MongoClient
+from pymongo.database import Database
 
 
 def build_mongo_uri() -> str:

@@ -13,6 +13,7 @@ export class Home {
 
   readonly items = signal<AccueilCard[]>([
     {
+      id: '1',
       title: 'HTML',
       description: "Les bases pour comprendre le fonctionnement d'HTML",
       theme: 'Frontend',
@@ -23,12 +24,14 @@ export class Home {
       description: 'Apprendre mise en forme de votre page',
       theme: 'Frontend',
       niveau: 'Facile',
+      id: '2',
     },
     {
       title: 'Git/Github',
       description: 'Créer le versonning de ton projet',
       theme: 'Setup',
       niveau: 'Moyen',
+      id: '3',
     },
   ]);
 }

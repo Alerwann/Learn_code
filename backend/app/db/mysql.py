@@ -1,9 +1,9 @@
 from collections.abc import Generator
-import pymysql
-from pymysql.cursors import DictCursor
-from pymysql.connections import Connection
 
+import pymysql
 from app.core.config import settings
+from pymysql.connections import Connection
+from pymysql.cursors import DictCursor
 
 
 def get_mysql_connection() -> Connection:
