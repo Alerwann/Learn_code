@@ -1,9 +1,11 @@
 from contextlib import asynccontextmanager
 
+from app.api.routes import accueil_cards
 from app.core.config import settings
 from app.db.mongo import get_mongo, get_mongo_client
 from app.db.mysql import get_db
 from fastapi import Depends, FastAPI, HTTPException, status
+from fastapi.middleware.cors import CORSMiddleware
 from pymongo.database import Database
 from pymysql.connections import Connection
 
@@ -24,11 +26,24 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:4200",
+        "http://127.0.0.1:4200",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+app.include_router(accueil_cards.router)
+
 
 @app.get("/health", status_code=status.HTTP_200_OK)
 def healthcheck(
-    db: Connection = Depends(get_db),
-    mongo_db: Database = Depends(get_mongo),
+    db: Connection = Depends(get_db),  # noqa: B008
+    mongo_db: Database = Depends(get_mongo),  # noqa: B008
 ) -> dict[str, str]:
     errors: dict[str, str] = {}
 
@@ -39,7 +54,7 @@ def healthcheck(
             row = cursor.fetchone()
             if not row or row.get("ok") != 1:
                 errors["mysql"] = "unexpected SELECT 1 result"
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001
         errors["mysql"] = str(exc)
 
     # 2. Vérification MongoDB avec PyMongo
@@ -47,7 +62,7 @@ def healthcheck(
         ping_result = mongo_db.command("ping")
         if ping_result.get("ok") != 1:
             errors["mongodb"] = "unexpected ping result"
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001
         errors["mongodb"] = str(exc)
 
     if errors:

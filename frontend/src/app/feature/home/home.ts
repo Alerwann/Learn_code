@@ -1,6 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Cardcomponent } from '../../shared/cardcomponent/cardcomponent';
-import { AccueilCard } from '../models/accueil-card/accueil-card.model';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { AccueilCardService } from '../../services/accueil-card';
 
 @Component({
   imports: [Cardcomponent],
@@ -10,28 +11,7 @@ import { AccueilCard } from '../models/accueil-card/accueil-card.model';
 })
 export class Home {
   title = 'home';
+  private readonly accueilCardService = inject(AccueilCardService);
 
-  readonly items = signal<AccueilCard[]>([
-    {
-      id: '1',
-      title: 'HTML',
-      description: "Les bases pour comprendre le fonctionnement d'HTML",
-      theme: 'Frontend',
-      niveau: 'Facile',
-    },
-    {
-      title: 'CSS',
-      description: 'Apprendre mise en forme de votre page',
-      theme: 'Frontend',
-      niveau: 'Facile',
-      id: '2',
-    },
-    {
-      title: 'Git/Github',
-      description: 'Créer le versonning de ton projet',
-      theme: 'Setup',
-      niveau: 'Moyen',
-      id: '3',
-    },
-  ]);
+  items = toSignal(this.accueilCardService.getCards(), { initialValue: [] });
 }
