@@ -1,19 +1,4 @@
-<div
-  class="pt-16 mx-8 bg-black grid lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-8 content-center"
->
-  @for (item of items(); track item.title) {
-    <app-cardcomponent>
-      <div class="w-full flex flex-col gap-4">
-        <div class="flex flex-col">
-          <h2 class="text-center text-3xl font-extrabold">{{ item.title }}</h2>
-          <div class="w-full flex flex-row justify-around">
-            <span class="p-2 rounded-lg border-0 bg-green-50">Difficultée : {{ item.niveau }}</span>
-            <span class="p-2 rounded-lg border-0 bg-yellow-50">Thème : {{ item.theme }}</span>
-          </div>
-        </div>
-
-        <p class="text-2xl text-center">{{ item.description }}</p>
-      </div>
-    </app-cardcomponent>
-  }
+<div class="pb-16 pt-8">
+  <app-info-site />
+  <app-cards-grid />
 </div>

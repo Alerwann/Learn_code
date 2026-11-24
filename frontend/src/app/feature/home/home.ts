@@ -1,17 +1,13 @@
-import { Component, inject } from '@angular/core';
-import { Cardcomponent } from '../../shared/cardcomponent/cardcomponent';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { AccueilCardService } from '../../services/accueil-card';
+import { Component } from '@angular/core';
+import { CardsGrid } from './components/cards-grid/cards-grid';
+import { InfoSite } from './components/info-site/info-site';
 
 @Component({
-  imports: [Cardcomponent],
+  imports: [CardsGrid, InfoSite],
   selector: 'app-home',
   styleUrl: './home.css',
   templateUrl: './home.html',
 })
 export class Home {
   title = 'home';
-  private readonly accueilCardService = inject(AccueilCardService);
-
-  items = toSignal(this.accueilCardService.getCards(), { initialValue: [] });
 }
