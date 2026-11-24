@@ -8,6 +8,7 @@ def _serialize_card(doc: dict) -> AccueilCardOut:
     return AccueilCardOut(
         id=str(doc["_id"]),
         title=doc["title"],
+        lien=doc["lien"],
         description=doc["description"],
         theme=doc["theme"],
         niveau=doc["niveau"],

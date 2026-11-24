@@ -9,30 +9,35 @@ DEFAULT_ACCUEIL_CARDS: list[AccueilCardCreate] = [
         description="Les bases pour comprendre le fonctionnement d'HTML",
         theme=ThemeEnum.FRONTEND,
         niveau=DifficulteEnum.FACILE,
+        lien="html",
     ),
     AccueilCardCreate(
         title="CSS",
         description="Apprendre mise en forme de votre page",
         theme=ThemeEnum.FRONTEND,
         niveau=DifficulteEnum.FACILE,
+        lien="css",
     ),
     AccueilCardCreate(
         title="Git/Github",
         description="Créer le versonning de ton projet",
         theme=ThemeEnum.SETUP,
         niveau=DifficulteEnum.MOYEN,
+        lien="git",
     ),
     AccueilCardCreate(
         title="Environnements avec Docker",
         description="Lancer des services isolés et orchestrer avec Compose.",
         theme=ThemeEnum.SETUP,
         niveau=DifficulteEnum.DIFFICILE,
+        lien="docker",
     ),
     AccueilCardCreate(
         title="Navigation efficace en CLI",
         description="Commandes shell, droits fichiers et scripts courants.",
         theme=ThemeEnum.CLI,
         niveau=DifficulteEnum.FACILE,
+        lien="cli",
     ),
 ]
 

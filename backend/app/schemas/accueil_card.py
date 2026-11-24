@@ -8,6 +8,7 @@ class AccueilCardOut(BaseModel):
     id: str
     title: str
     description: str
+    lien: str
     theme: ThemeEnum
     niveau: DifficulteEnum
 
@@ -15,5 +16,6 @@ class AccueilCardOut(BaseModel):
 class AccueilCardCreate(BaseModel):
     title: str
     description: str
+    lien: str
     theme: ThemeEnum
     niveau: DifficulteEnum

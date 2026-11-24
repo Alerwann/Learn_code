@@ -4,6 +4,7 @@ import { ThemeEnum } from '../../../shared/models/theme_model.model';
 export interface AccueilCard {
   id: string;
   title: string;
+  lien: string;
   description: string;
   theme: ThemeEnum;
   niveau: DifficulteEnum;
