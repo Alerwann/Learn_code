@@ -1,1 +1,74 @@
-<p>home-html works!</p>
+<div class="flex flex-col items-center pb-10">
+  <h2
+    card-titre
+    class="mb-8 pt-24 text-green-500 text-shadow-green-300 text-shadow-[0px_0px_16px] text-8xl text-center"
+  >
+    HTML
+  </h2>
+  <div class="w-full flex flex-col md:grid md:grid-cols-2 gap-4 pb-8 px-8">
+    <app-flip-card>
+      <span card-face>À quoi sert HTML ?</span>
+
+      <div card-back>
+        <p>
+          HTML est le squelette du site. C'est grâce à ça que l'on structure les informations qui
+          vont s'afficher.
+        </p>
+        <p>
+          Ce n'est pas un langage de programmation à proprement parler mais un langage de balisage.
+          Cela signifie qu'il se base sur des balises qu'on ouvre et ferme.
+        </p>
+        <p>
+          Même si c'est utilisé depuis le début du web, il reste toujours d'actualité. Sans
+          comprendre ce langage, il est impossible de créer un site même avec les framework courant
+          REACT et Angular.
+        </p>
+      </div>
+    </app-flip-card>
+    <app-flip-card>
+      <span card-face>Où trouver la documentation ?</span>
+      <div card-back>
+        <a
+          href="https://developer.mozilla.org/fr/docs/Web/HTML"
+          target="_blank"
+          rel="noopener noreferrer"
+          >MDN</a
+        >
+        est la référence pour la documentation de HTML. Toutes les balises sont répertoriées et il
+        permet de tester directement pour mieux comprendre.
+      </div>
+    </app-flip-card>
+    <app-flip-card>
+      <span card-face>Comment l'apprendre ?</span>
+      <div card-back>
+        <p>
+          L'apprentissage de l'html est peu fun sans le CSS. En effet le html pur affiche du text
+          noir sur fond blanc.
+        </p>
+        <p>Il est plus interessant est donc de l'apprendre en même temps que le css.</p>
+        <p>Il est évident que la pratique reste la meilleure méthode pour retenir.</p>
+      </div>
+    </app-flip-card>
+    <app-flip-card>
+      <span card-face>Les règles indispensables</span>
+      <div card-back>
+        <p>Pour la plus part des balises retient : "Quand tu l'ouvres, tu la fermes!"</p>
+        <p>
+          Le référencement sur google actuellement, se base sur les pages HTML. Il faut donc en
+          prendre soin.
+        </p>
+        <p>
+          S'il y a un grand nombre de balises c'est qu'elles sont toutes utiles! N'utilises pas que
+          des 'div' mais soit précis!
+        </p>
+      </div>
+    </app-flip-card>
+  </div>
+  <a href="">
+    <button
+      class="bg-size-[200%_200%] hover:bg-bottom-left hover:scale-105 bg-top-right bg-linear-to-bl from-amber-100 to-green-200 px-4 py-2 rounded-2xl text-2xl border-2 border-green-500 transition-all duration-500 font-bold"
+    >
+      Prêt pour apprendre les bases?
+    </button>
+  </a>
+</div>
