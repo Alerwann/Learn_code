@@ -1,27 +1,31 @@
 <div class="pt-8 w-full flex flex-col items-center">
   <h2
-    class="mb-8 pt-12 text-green-500 text-shadow-green-300 text-shadow-[0px_0px_16px] text-8xl text-center"
+    class="mb-8 pt-12 text-green-500 text-shadow-green-300 text-shadow-[0px_0px_16px] text-6xl text-center"
   >
     L'apprentissage
   </h2>
 
-  <ul class="flex flex-col md:flex-row justify-around gap-4 bg-black py-8 w-full">
+  <ul
+    class="flex flex-col md:flex-row justify-around gap-4 bg-linear-to-b from-black to-20% to-amber-50 py-8 w-full"
+  >
     <app-li-component (select)="toggle(0)"> L'initialisation du projet </app-li-component>
     <app-li-component (select)="toggle(1)"> Les premières balises indispensables </app-li-component>
     <app-li-component (select)="toggle(2)"> Les premières lignes </app-li-component>
     <app-li-component (select)="toggle(3)"> Méthode pour aller plus loin </app-li-component>
   </ul>
 
-  @if (indexPage() === 0) {
-    <app-init-page />
-  }
-  @if (indexPage() === 1) {
-    <p class="text-white">balises et moyen mémothechnique</p>
-  }
-  @if (indexPage() === 2) {
-    <p class="text-white">presentation de code</p>
-  }
-  @if (indexPage() === 3) {
-    <p class="text-white">Méthode pour aller plus loin</p>
-  }
+  <div>
+    @if (indexPage() === 0) {
+      <app-init-page />
+    }
+    @if (indexPage() === 1) {
+      <app-first-balise-page />
+    }
+    @if (indexPage() === 2) {
+      <p class="text-white">presentation de code</p>
+    }
+    @if (indexPage() === 3) {
+      <p class="text-white">Méthode pour aller plus loin</p>
+    }
+  </div>
 </div>

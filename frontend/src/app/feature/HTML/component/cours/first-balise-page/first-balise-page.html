@@ -1,0 +1,78 @@
+<div
+  class="bg-linear-to-b from-amber-50 to-green-200 flex flex-col gap-4 items-center w-screen p-8 md:px-15"
+>
+  <app-section-cours>
+    <ng-content titre>Définition</ng-content>
+    <ng-content contenu>
+      <table class="text-center table-fixed border-2 border-gray-300">
+        <colgroup>
+          <col class="w-[40%]" />
+          <col class="w-[60%]" />
+        </colgroup>
+        <thead>
+          <tr class="divide-x-2 divide-gray-300 border-b-2 border-gray-300">
+            <th>Nom</th>
+            <th>Définition</th>
+          </tr>
+        </thead>
+
+        <tbody class="divide-y-2 divide-gray-300">
+          <tr class="divide-x-2 divide-gray-300 border-b-2 border-gray-300">
+            <th>BALISES</th>
+            <td class="text-justify p-4">
+              Nom donné pour définir un élément de la page. <br />
+              Chaque nom de balise est entouré de < et >. <br />
+              Les balises sont obligatoirement ouvertes et fermées. <br />
+            </td>
+          </tr>
+          <tr class="divide-x-2 divide-gray-300 border-b-2 border-gray-300">
+            <th>BALISES AUTO-FERMANTES</th>
+            <td class="text-justify p-4">
+              Certaines balises ont la particularités de se fermer automatiquement. Elles sont
+              appelé élements vide(void element en Anglais). <br />
+              Elles n'ont pas besoin de balise de fermeture et, même si votre IDE l'ajoute, un /
+              n'est pas nécessaire pour la fermer.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-content>
+  </app-section-cours>
+  <app-section-cours>
+    <ng-content titre>Balise de titre</ng-content>
+    <ng-content contenu>
+      <table class="text-center table-fixed border-2 border-gray-300 md:w-full">
+        <colgroup>
+          <col class="w-[15%]" />
+          <col class="w-[15%]" />
+          <col class="w-[20%]" />
+          <col class="w-[50%]" />
+        </colgroup>
+        <thead>
+          <tr class="divide-x-2 divide-gray-300 border-b-2 border-gray-300">
+            <th>Type de contenu</th>
+            <th>Balise</th>
+            <th>Exemple</th>
+            <th>Explication</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y-2 divide-gray-300">
+          <tr class="divide-x-2 divide-gray-300 border-b-2 border-gray-300">
+            <th>TITRE</th>
+            <td>h1, h2, .... , h6</td>
+            <td><code>&lt;h1&gt;text&lt;/h1&gt;</code></td>
+            <td>
+              <p class="text-justify p-4">
+                La lettre h vient de heading en anglais qui veut dire titre/en-tête de section
+                <br />
+                Le chiffre représente sa place dans la hiérarchie des titres. <br />
+                Il ne faut qu'un h1 par page pour le SEO. Le respect de l'ordre des indices et le
+                fait de ne pas en sauter est aussi important.
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-content>
+  </app-section-cours>
+</div>
