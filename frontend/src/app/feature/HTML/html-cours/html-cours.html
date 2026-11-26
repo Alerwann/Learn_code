@@ -1,0 +1,40 @@
+<div class="pt-8">
+  <h2
+    class="mb-8 pt-24 text-green-500 text-shadow-green-300 text-shadow-[0px_0px_16px] text-8xl text-center"
+  >
+    L'apprentissage
+  </h2>
+
+  <section class="bg-linear-to-b from-amber-50 to-green-200 p-4">
+    <h4 class="text-2xl font-bold">Les besoins techniques</h4>
+    <p>
+      L'idéal est d'installer un IDE (logiciel qui permet de taper son code et que celui ci soit lu
+      et traité suivant le langage utilisé), mais il n'est pas indispensable pour html. Un simple
+      bloc note suiffit pour créer un fichier ".html ".
+    </p>
+    <p>La visiualisation du code sera dans un navigateur internet, peu importe lequel.</p>
+  </section>
+  <div class="bg-white">
+    <h4 class="text-2xl font-bold">Les thèmes abordés</h4>
+    <ul class="flex flex-col md:flex-row items-center gap-4">
+      <app-li-component (select)="toggle(0)"> L'initialisation du projet </app-li-component>
+      <app-li-component (select)="toggle(1)">
+        Les premières balises indispensables
+      </app-li-component>
+      <app-li-component (select)="toggle(2)"> Les premières lignes </app-li-component>
+      <app-li-component (select)="toggle(3)"> Méthode pour aller plus loin </app-li-component>
+    </ul>
+  </div>
+  @if (indexPage() === 0) {
+    <p class="text-white">initialisation</p>
+  }
+  @if (indexPage() === 1) {
+    <p class="text-white">balises et moyen mémothechnique</p>
+  }
+  @if (indexPage() === 2) {
+    <p class="text-white">presentation de code</p>
+  }
+  @if (indexPage() === 3) {
+    <p class="text-white">Méthode pour aller plus loin</p>
+  }
+</div>
