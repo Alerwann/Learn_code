@@ -1,0 +1,76 @@
+<div class="bg-linear-to-b from-amber-50 to-green-200 p-4 flex flex-col gap-4 items-center">
+  <section
+    class="text-justify text-xl flex flex-col gap-4 border-2 border-green-200 bg-amber-50 shadow-gray-300 shadow-[5px_5px_5px] rounded-2xl p-4 md:w-8/10"
+  >
+    <h3 class="text-center text-4xl">Les besoins techniques</h3>
+    <p>
+      L'idéal est d'installer un IDE (logiciel qui permet de taper son code et que celui ci soit lu
+      et traité suivant le langage utilisé), mais il n'est pas indispensable pour html. Un simple
+      bloc note suiffit pour créer un fichier ".html ".
+    </p>
+    <p>La visiualisation du code sera dans un navigateur internet, peu importe lequel.</p>
+  </section>
+  <section
+    class="text-justify text-xl flex flex-col gap-4 border-2 border-green-200 bg-amber-50 shadow-gray-300 shadow-[5px_5px_5px] rounded-2xl p-4 md:w-8/10"
+  >
+    <h3 class="text-center text-4xl">Initialisation du projet</h3>
+
+    <p>La première page à forcément le nom d'index. Il faut donc créer un fichier: index.html</p>
+    <p>Les pages HTML ont une structure fixe et obligatoire</p>
+  </section>
+
+  <section
+    class="text-justify text-xl flex flex-col gap-4 border-2 border-green-200 bg-amber-50 shadow-gray-300 shadow-[5px_5px_5px] rounded-2xl p-4 md:w-8/10"
+  >
+    <h3 class="text-center text-4xl">L'initialisation est la suivante</h3>
+    <div class="flex flex-col md:flex-row gap-8">
+      <div class="flex-1">
+        <h4 class="text-2xl text-center pb-8 font-bold">Exemple du code</h4>
+        <img
+          src="images/init-html.webp"
+          alt="image montrant les code de l'initialisation"
+          (click)="toggleZoom()"
+          class="cursor-zoom-in"
+        />
+        @if (aggrandi()) {
+          <div
+            (click)="toggleZoom()"
+            class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-6 cursor-zoom-out"
+          >
+            <img
+              src="images/init-html.webp"
+              alt="image montrant les code de l'initialisation agrandie"
+              class="max-w-[90vw] max-h-[90vh] object-contain rounded-lg shadow-2xl"
+            />
+          </div>
+        }
+      </div>
+      <div class="flex-1">
+        <h4 class="text-2xl text-center pb-8 font-bold">Explication des lignes</h4>
+        <div class="grid grid-cols-1 md:grid-cols-[1fr_3fr] gap-4">
+          <p class="">!< doctype html ></p>
+          <p>Cette ligne dit à l'ordinateur que le type ce fichier sera du HTMl</p>
+
+          <p class="">< html lang="en" ></p>
+          <p>
+            Indique le début de la page html. L'attribut lang définit la langue utilisé dans le site
+            pour le référencement. Pour un site en français, remplacer en par fr.
+          </p>
+          <p class="">< head ></p>
+          <p>Cette balise englobe tous les imports de fichier ou données autres</p>
+          <p class="">< meta ></p>
+          <p>
+            Cette balise sert à déterminer les métadonnées : le type de caractère, le type
+            d'affichage possible, les méta pour le SEO ou l'ia ....
+          </p>
+          <p class="">< title ></p>
+          <p>Sera le titre de la page</p>
+          <p class="">< body ></p>
+          <p>À l'interrieur de cette balise il y aura tout le corps de la page</p>
+          <p class="">< / html ></p>
+          <p>Cette balise indique la fin de la page html. Au-delà le code ne sera pas lu</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
