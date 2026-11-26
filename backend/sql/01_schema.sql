@@ -30,3 +30,11 @@ CREATE TABLE user_cours_suivi(
     utilisateur_id INT NOT NULL,
     CONSTRAINT fk_utilisateur_cours FOREIGN KEY (utilisateur_id) REFERENCES utilisateur(utilisateur_id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE balise_info(
+    balise_id INT AUTO_INCREMENT PRIMARY KEY,
+    balise_type VARCHAR(255) NOT NULL,
+    balise_nom VARCHAR(255) NOT NULL,
+    balise_exemple VARCHAR(255) NOT NULL,
+    balise_explication TEXT NOT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

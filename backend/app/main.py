@@ -1,6 +1,6 @@
 from contextlib import asynccontextmanager
 
-from app.api.routes import accueil_cards
+from app.api.routes import accueil_cards, balise_info
 from app.core.config import settings
 from app.db.mongo import get_mongo, get_mongo_client
 from app.db.mysql import get_db
@@ -38,6 +38,7 @@ app.add_middleware(
 )
 
 app.include_router(accueil_cards.router)
+app.include_router(balise_info.router)
 
 
 @app.get("/health", status_code=status.HTTP_200_OK)
