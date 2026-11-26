@@ -1,8 +1,8 @@
 from app.db.mysql import get_db
-from app.protocol.balise_info import BaliseInfoRepository
-from app.repositories.balise_info import SqlBaliseInfoRepository
+from app.protocols.balise_protocol import BaliseInfoRepository
+from app.repositories.balise_info_repo import SqlBaliseInfoRepository
 from app.schemas.balise_info import BaliseInfoIn, BaliseInfoOut
-from app.services.balise_info import BaliseInfoNotFoundError, BaliseInfoService
+from app.services.balise_info_service import BaliseInfoNotFoundError, BaliseInfoService
 from fastapi import APIRouter, Depends, HTTPException, Query, status
 from pymysql.connections import Connection
 

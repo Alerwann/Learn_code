@@ -1,4 +1,4 @@
-from app.protocols.balise_info import BaliseInfoRepository
+from app.protocols.balise_protocol import BaliseInfoRepository
 from app.schemas.balise_info import BaliseInfoIn, BaliseInfoOut
 
 

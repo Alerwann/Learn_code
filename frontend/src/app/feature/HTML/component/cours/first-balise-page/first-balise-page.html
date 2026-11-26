@@ -38,6 +38,7 @@
       </table>
     </ng-content>
   </app-section-cours>
+
   <app-section-cours>
     <ng-content titre>Balise de titre</ng-content>
     <ng-content contenu>
@@ -56,21 +57,13 @@
             <th>Explication</th>
           </tr>
         </thead>
-        <tbody class="divide-y-2 divide-gray-300">
-          <tr class="divide-x-2 divide-gray-300 border-b-2 border-gray-300">
-            <th>TITRE</th>
-            <td>h1, h2, .... , h6</td>
-            <td><code>&lt;h1&gt;text&lt;/h1&gt;</code></td>
-            <td>
-              <p class="text-justify p-4">
-                La lettre h vient de heading en anglais qui veut dire titre/en-tête de section
-                <br />
-                Le chiffre représente sa place dans la hiérarchie des titres. <br />
-                Il ne faut qu'un h1 par page pour le SEO. Le respect de l'ordre des indices et le
-                fait de ne pas en sauter est aussi important.
-              </p>
-            </td>
-          </tr>
+        <tbody>
+          @for (balise of balises(); track balise.balise_id) {
+            <tr class="divide-x-2 divide-gray-300 border-b-2 border-gray-300">
+              <th>{{ balise.balise_type }}</th>
+              <td>{{ balise.balise_nom }}</td>
+            </tr>
+          }
         </tbody>
       </table>
     </ng-content>
