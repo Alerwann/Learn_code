@@ -17,23 +17,12 @@
         </thead>
 
         <tbody class="divide-y-2 divide-gray-300">
-          <tr class="divide-x-2 divide-gray-300 border-b-2 border-gray-300">
-            <th>BALISES</th>
-            <td class="text-justify p-4">
-              Nom donné pour définir un élément de la page. <br />
-              Chaque nom de balise est entouré de < et >. <br />
-              Les balises sont obligatoirement ouvertes et fermées. <br />
-            </td>
-          </tr>
-          <tr class="divide-x-2 divide-gray-300 border-b-2 border-gray-300">
-            <th>BALISES AUTO-FERMANTES</th>
-            <td class="text-justify p-4">
-              Certaines balises ont la particularités de se fermer automatiquement. Elles sont
-              appelé élements vide(void element en Anglais). <br />
-              Elles n'ont pas besoin de balise de fermeture et, même si votre IDE l'ajoute, un /
-              n'est pas nécessaire pour la fermer.
-            </td>
-          </tr>
+          @for (definition of definitions(); track definition.def_id) {
+            <tr class="divide-x-2 divide-gray-300 border-b-2 border-gray-300">
+              <th>{{ definition.def_name }}</th>
+              <td class="text-left p-4">{{ definition.def_description }}</td>
+            </tr>
+          }
         </tbody>
       </table>
     </ng-content>
@@ -62,8 +51,8 @@
             <tr class="divide-x-2 divide-gray-300 border-b-2 border-gray-300">
               <th>{{ balise.balise_type }}</th>
               <td>{{ balise.balise_name }}</td>
-              <td>{{ balise.balise_exemple }}</td>
-              <td>{{ balise.balise_explication }}</td>
+              <td class="text-left p-4">{{ balise.balise_exemple }}</td>
+              <td class="text-justify p-4">{{ balise.balise_explication }}</td>
             </tr>
           }
         </tbody>

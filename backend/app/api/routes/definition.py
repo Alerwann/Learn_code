@@ -1,12 +1,12 @@
 from app.db.mysql import get_db
 from app.protocols.def_protocol import DefRepository
 from app.repositories.definition_repo import SqlDefinitionRepo
-from app.schemas.definition_shema import DefinititionIn, DefinititionOut
+from app.schemas.definition_shema import definitionIn, definitionOut
 from app.services.definition_service import DefNotFoundError, DefService
 from fastapi import APIRouter, Depends, HTTPException, status
 from pymysql.connections import Connection
 
-router = APIRouter(prefix="/def", tags=["defintion"])
+router = APIRouter(prefix="/definition", tags=["defintion"])
 
 
 def get_def_service(db: Connection = Depends(get_db)) -> DefService:  # noqa: B008
@@ -14,16 +14,16 @@ def get_def_service(db: Connection = Depends(get_db)) -> DefService:  # noqa: B0
     return DefService(repository)
 
 
-@router.get("", response_model=list[DefinititionOut])
-def list_def(service: DefService = Depends(get_def_service)) -> list[DefinititionOut]:  # noqa: B008
+@router.get("", response_model=list[definitionOut])
+def list_def(service: DefService = Depends(get_def_service)) -> list[definitionOut]:  # noqa: B008
     return service.getAllDef()
 
 
-@router.get("/{def_category}", response_model=DefinititionOut)
+@router.get("/category/{def_category}", response_model=list[definitionOut])
 def getDefByCategory(
     def_category: str,
     service: DefService = Depends(get_def_service),  # noqa: B008
-) -> DefinititionOut:
+) -> definitionOut:
     try:
         return service.getDefByCategory(def_category)
     except ValueError as exc:
@@ -37,13 +37,13 @@ def getDefByCategory(
         ) from exc
 
 
-@router.get("/{def_id}", response_model=DefinititionOut)
+@router.get("/{def_id}", response_model=definitionOut)
 def getDefById(
     def_id: int,
     service: DefService = Depends(get_def_service),  # noqa: B008
-) -> DefinititionOut:
+) -> definitionOut:
     try:
-        return service.getDefByCategory(def_id)
+        return service.getDefById(def_id)
     except ValueError as exc:
         raise HTTPException(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)
@@ -55,23 +55,23 @@ def getDefById(
         ) from exc
 
 
-@router.post("", response_model=DefinititionOut, status_code=status.HTTP_201_CREATED)
+@router.post("", response_model=definitionOut, status_code=status.HTTP_201_CREATED)
 def create_def(
-    payload: DefinititionIn,
+    playload: definitionIn,
     service: DefService = Depends(get_def_service),  # noqa: B008
-) -> DefinititionOut:
+) -> definitionOut:
     try:
-        return service.create_def(payload)
+        return service.create_def(playload)
     except ValueError as exc:
         raise HTTPException(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)
         ) from exc
 
 
-@router.put("/{def_id}", response_model=DefinititionOut)
+@router.put("/{def_id}", response_model=definitionOut)
 def update_def(
     def_id: int,
-    playload: DefinititionIn,
+    playload: definitionIn,
     service: DefService = Depends(get_def_service),  # noqa: B008
 ):
     try:
@@ -87,7 +87,7 @@ def update_def(
         ) from exc
 
 
-@router.delete("/{def_id}", response_model=status.HTTP_204_NO_CONTENT)
+@router.delete("/{def_id}", status_code=status.HTTP_204_NO_CONTENT)
 def deleteCategory(
     def_id: int,
     service: DefService = Depends(get_def_service),  # noqa: B008
