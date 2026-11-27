@@ -14,7 +14,7 @@ class SqlBaliseInfoRepository:
         sql = """
             INSERT INTO balise_info (
                 balise_type,
-                balise_nom,
+                balise_name,
                 balise_exemple,
                 balise_explication
             )
@@ -22,7 +22,7 @@ class SqlBaliseInfoRepository:
         """
         params = (
             data.balise_type,
-            data.balise_nom,
+            data.balise_name,
             data.balise_exemple,
             data.balise_explication,
         )
@@ -40,7 +40,7 @@ class SqlBaliseInfoRepository:
             SELECT
                 balise_id,
                 balise_type,
-                balise_nom,
+                balise_name,
                 balise_exemple,
                 balise_explication
             FROM balise_info
@@ -56,7 +56,7 @@ class SqlBaliseInfoRepository:
             SELECT
                 balise_id,
                 balise_type,
-                balise_nom,
+                balise_name,
                 balise_exemple,
                 balise_explication
             FROM balise_info
@@ -73,14 +73,14 @@ class SqlBaliseInfoRepository:
             UPDATE balise_info
             SET
                 balise_type = %s,
-                balise_nom = %s,
+                balise_name = %s,
                 balise_exemple = %s,
                 balise_explication = %s
             WHERE balise_id = %s
         """
         params = (
             data.balise_type,
-            data.balise_nom,
+            data.balise_name,
             data.balise_exemple,
             data.balise_explication,
             balise_id,

@@ -34,7 +34,14 @@ CREATE TABLE user_cours_suivi(
 CREATE TABLE balise_info(
     balise_id INT AUTO_INCREMENT PRIMARY KEY,
     balise_type VARCHAR(255) NOT NULL,
-    balise_nom VARCHAR(255) NOT NULL,
+    balise_name VARCHAR(255) NOT NULL,
     balise_exemple VARCHAR(255) NOT NULL,
     balise_explication TEXT NOT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE all_definition(
+    def_id INT AUTO_INCREMENT PRIMARY KEY,
+    def_name VARCHAR(255) NOT NULL,
+    def_description TEXT NOT NULL,
+    def_category VARCHAR(255)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

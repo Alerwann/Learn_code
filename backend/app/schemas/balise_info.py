@@ -3,7 +3,7 @@ from pydantic import BaseModel, ConfigDict
 
 class BaliseInfoIn(BaseModel):
     balise_type: str
-    balise_nom: str
+    balise_name: str
     balise_exemple: str
     balise_explication: str
 

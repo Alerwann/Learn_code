@@ -17,7 +17,7 @@ INSERT INTO user_cours_suivi(cours_id,progression,utilisateur_id) VALUES
 (1,0.80,2),
 (2,0.25,2);
 
-INSERT INTO balise_info(balise_type,balise_nom,balise_exemple,balise_explication) VALUES
+INSERT INTO balise_info(balise_type,balise_name,balise_exemple,balise_explication) VALUES
 ('Entête de la page','header','<header>Contenu du Header</header>', 'Partie du haut de la page qui contient souvent un logo un titre et la navigation'),
 ('Pied de page','footer','<footer>Contenu</footer', 'Partie tout en bas de la page. Contient les informations légales, les informations sur l''entreprise'),
 ('Navigation','nav','<nav>Contenu</nav>', 'Ensemble des liens permettant de naviguer sur les pages principales du site'),
@@ -25,3 +25,7 @@ INSERT INTO balise_info(balise_type,balise_nom,balise_exemple,balise_explication
 ('Paragraphe','p','<p>Texte qui constinue un paraphe ou une phrase</p>', '<p> Permet d''encadrer une ou plusieurs phrases'),
 ('Section','section','<section>Contenu</section>','La section regroupe plusieurs éléments qui ne peuvent être regroupé dans un champs sémentique'),
 ('Article','article','<article><h?>Titre de l''article<h?><section>Contenu</section></article> ', 'L''article contient obligatoirement un titre et un enfant(contenu)');
+
+INSERT INTO all_definition(def_name,def_description,def_category) VALUES
+('BALISES','Nom donné pour définir un élément de la page. Chaque nom de balise est entouré de < et >. Les balises sont obligatoirement ouvertes et fermées.','html'),
+('BALISES AUTO-FERMANTES',' Certaines balises ont la particularités de se fermer automatiquement. Elles sont appelé élements vide(void element en Anglais). Elles n''ont pas besoin de balise de fermeture et, même si votre IDE l''ajoute, un / n''est pas nécessaire pour la fermer.','html')

@@ -13,12 +13,12 @@ class BaliseInfoService:
     def create_balise(self, data: BaliseInfoIn) -> BaliseInfoOut:
         cleaned = BaliseInfoIn(
             balise_type=data.balise_type.strip(),
-            balise_nom=data.balise_nom.strip(),
+            balise_name=data.balise_name.strip(),
             balise_exemple=data.balise_exemple.strip(),
             balise_explication=data.balise_explication.strip(),
         )
-        if not cleaned.balise_type or not cleaned.balise_nom:
-            raise ValueError("balise_type et balise_nom ne peuvent pas être vides")
+        if not cleaned.balise_type or not cleaned.balise_name:
+            raise ValueError("balise_type et balise_name ne peuvent pas être vides")
         return self._repository.create(cleaned)
 
     def get_balise(self, balise_id: int) -> BaliseInfoOut:
@@ -41,12 +41,12 @@ class BaliseInfoService:
             raise ValueError("balise_id doit être un entier strictement positif")
         cleaned = BaliseInfoIn(
             balise_type=data.balise_type.strip(),
-            balise_nom=data.balise_nom.strip(),
+            balise_name=data.balise_name.strip(),
             balise_exemple=data.balise_exemple.strip(),
             balise_explication=data.balise_explication.strip(),
         )
-        if not cleaned.balise_type or not cleaned.balise_nom:
-            raise ValueError("balise_type et balise_nom ne peuvent pas être vides")
+        if not cleaned.balise_type or not cleaned.balise_name:
+            raise ValueError("balise_type et balise_name ne peuvent pas être vides")
         updated = self._repository.update(balise_id, cleaned)
         if updated is None:
             raise BaliseInfoNotFoundError(f"Balise {balise_id} introuvable")
