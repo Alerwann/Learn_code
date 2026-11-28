@@ -60,7 +60,7 @@ class SqlBaliseInfoRepository:
                 balise_exemple,
                 balise_explication
             FROM balise_info
-            ORDER BY balise_id ASC
+            ORDER BY balise_type ASC
             LIMIT %s OFFSET %s
         """
         with self._conn.cursor() as cur:

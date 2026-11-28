@@ -60,6 +60,7 @@ class SqlDefinitionRepo:
             SELECT def_id, def_name, def_description, def_category
             FROM all_definition 
             WHERE def_category=%s
+            ORDER BY def_name ASC
         """
         with self._conn.cursor() as cur:
             cur.execute(sql, (def_category))
