@@ -10,8 +10,8 @@
   >
     <app-li-component (select)="toggle(0)"> L'initialisation du projet </app-li-component>
     <app-li-component (select)="toggle(1)"> Les premières balises indispensables </app-li-component>
-    <app-li-component (select)="toggle(2)"> Les premières lignes </app-li-component>
-    <app-li-component (select)="toggle(3)"> Méthode pour aller plus loin </app-li-component>
+    <app-li-component (select)="toggle(2)"> Pour aller plus loin </app-li-component>
+    <app-li-component (select)="toggle(2)"> Exercices</app-li-component>
   </ul>
 
   <div>
@@ -21,11 +21,12 @@
     @if (indexPage() === 1) {
       <app-first-balise-page />
     }
+
     @if (indexPage() === 2) {
-      <p class="text-white">presentation de code</p>
+      <app-more-html />
     }
     @if (indexPage() === 3) {
-      <p class="text-white">Méthode pour aller plus loin</p>
+      <app-html-exercices />
     }
   </div>
 </div>

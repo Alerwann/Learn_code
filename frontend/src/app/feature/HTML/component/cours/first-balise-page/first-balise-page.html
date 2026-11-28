@@ -29,20 +29,18 @@
   </app-section-cours>
 
   <app-section-cours>
-    <ng-content titre>Balise de titre</ng-content>
+    <ng-content titre>Lites des balises basiques</ng-content>
     <ng-content contenu>
       <table class="text-center table-fixed border-2 border-gray-300 md:w-full">
         <colgroup>
-          <col class="w-[15%]" />
-          <col class="w-[15%]" />
-          <col class="w-[20%]" />
-          <col class="w-[50%]" />
+          <col class="md:w-[25%]" />
+          <col class="md:w-[25%]" />
+          <col class="md:w-[50%]" />
         </colgroup>
         <thead>
           <tr class="divide-x-2 divide-gray-300 border-b-2 border-gray-300">
             <th>Type de contenu</th>
             <th>Balise</th>
-            <th>Exemple</th>
             <th>Explication</th>
           </tr>
         </thead>
@@ -50,8 +48,15 @@
           @for (balise of balises(); track balise.balise_id) {
             <tr class="divide-x-2 divide-gray-300 border-b-2 border-gray-300">
               <th>{{ balise.balise_type }}</th>
-              <td>{{ balise.balise_name }}</td>
-              <td class="text-left p-4">{{ balise.balise_exemple }}</td>
+              <td>
+                <button
+                  type="button"
+                  (click)="ouvrirExemple(balise)"
+                  class="hover:cursor-alias p-8 text-blue-400 underline underline-offset-2"
+                >
+                  {{ balise.balise_name }}
+                </button>
+              </td>
               <td class="text-justify p-4">{{ balise.balise_explication }}</td>
             </tr>
           }
@@ -59,4 +64,33 @@
       </table>
     </ng-content>
   </app-section-cours>
+  <app-section-cours>
+    <ng-content titre>Comment l'utiliser</ng-content>
+    <ng-content contenu>
+      <img
+        src="images/html/prem-balise-html.webp"
+        alt="Exemple de code reprenant toutes les balises"
+    /></ng-content>
+  </app-section-cours>
+  <dialog
+    #dialogExemple
+    (close)="baliseSelect.set(null)"
+    class="p-6 rounded-lg shadow-xl backdrop:bg-black/50 top-1/4 left-[40vw] fixed z-50 inset-0"
+  >
+    @if (baliseSelect(); as balise) {
+      <div class="flex flex-col gap-3 items-center bg-amber-50 max-w-[50vw] max-h-[50vh]">
+        <h3 class="text-lg font-bold">{{ balise.balise_name }}</h3>
+        <pre
+          class="bg-gray-900 text-green-300 p-3 rounded"
+        ><code>{{ balise.balise_exemple }}</code></pre>
+        <button
+          type="button"
+          (click)="fermerExemple()"
+          class="self-center px-4 py-2 bg-gray-800 text-white rounded"
+        >
+          Fermer
+        </button>
+      </div>
+    }
+  </dialog>
 </div>

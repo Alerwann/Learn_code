@@ -1,8 +1,9 @@
-import { Component, inject } from '@angular/core';
+import { Component, ElementRef, inject, signal, viewChild } from '@angular/core';
 import { SectionCours } from '../../section-cours/section-cours';
 import { BaliseInfoService } from '../../../../../services/balise_data';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { DefinitionService } from '../../../../../services/definition_service';
+import { BaliseInfoOut } from '../../../../models/html/balise-info.model';
 
 @Component({
   imports: [SectionCours],
@@ -18,4 +19,17 @@ export class FirstBalisePage {
   definitions = toSignal(this.definitionService.getDefinitionByCategory('html'), {
     initialValue: [],
   });
+
+  baliseSelect = signal<BaliseInfoOut | null>(null);
+
+  dialogRef = viewChild<ElementRef<HTMLDialogElement>>('dialogExemple');
+
+  ouvrirExemple(balise: BaliseInfoOut): void {
+    this.baliseSelect.set(balise);
+    this.dialogRef()?.nativeElement.showModal();
+  }
+
+  fermerExemple(): void {
+    this.dialogRef()?.nativeElement.close();
+  }
 }

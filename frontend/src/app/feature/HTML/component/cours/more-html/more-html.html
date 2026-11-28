@@ -1,0 +1,73 @@
+<div
+  class="bg-linear-to-b from-amber-50 to-green-200 grid grid-cols-1 gap-4 items-center p-8 md:px-15"
+>
+  <app-section-cours>
+    <ng-content titre>Résumé</ng-content>
+    <ng-content contenu
+      >On a appris précédement comment stucturer une page basique et pour le moment sans aucun
+      style. <br />Il est donc interessant pour vous d'apprendre maintenant le style avec CSS.<br />
+      De plus si vous vouler pouvoir rendre dynamique votre page, il faudra apprendre le JavaScript.
+      Cela vous permettra aussi de découvrir de nouvelles balises pour faire des formulaire ou
+      utiliser des boutons.
+    </ng-content>
+  </app-section-cours>
+  <app-section-cours>
+    <ng-content titre>Ressources pour encore plus de HTML</ng-content>
+    <ng-content contenu>
+      <div>
+        <p>
+          Documentation officielle :
+          <a
+            href="https://developer.mozilla.org/fr/docs/Web/HTML"
+            target="_blank"
+            class="text-blue-800 underline underline-offset-2"
+            >MDN</a
+          >
+        </p>
+        <p>
+          Youtubeur :
+          <a
+            href="https://www.youtube.com/@Gravenilvectuto"
+            class="text-blue-800 underline underline-offset-2"
+            >Graven</a
+          >
+          et
+          <a
+            href="https://www.youtube.com/@grafikart"
+            class="text-blue-800 underline underline-offset-2"
+            >Grafikart</a
+          >
+        </p>
+        <p>
+          Cours gratuit (nécessite une inscription sans engagement) :
+          <a
+            href="https://openclassrooms.com/fr/courses/1603881-creez-votre-site-web-avec-html5-et-css3"
+            class="text-blue-800 underline underline-offset-2"
+            >openclassrooms</a
+          >
+        </p>
+        <p>
+          J'ai choisi ses ressources par expérience professionnelles. <br />
+          MDN est LA référence pour toutes les informations sur HTML, CSS, JS. <br />
+          Les deux youtubeur proposent des cours rapides en faisant un mini projet. <br />
+          Openclassroom met à disposition les cours qui incluent, un projet et des vidéos ainsi que
+          des mini quizz pour vérifier que le chapitre est compris.
+        </p>
+      </div>
+    </ng-content>
+  </app-section-cours>
+  <app-section-cours>
+    <ng-content titre>Comment s'éxercer ?</ng-content>
+    <ng-content contenu
+      >Le meilleur moyen de s'éxercer c'est de faire. Voici une liste de quelques projets:
+      <ul class="pl-4">
+        <li>Fiche pour se présenter</li>
+        <li>Blog sur son apprentissage</li>
+        <li>Exposé sur un thème que l'on apprécie</li>
+        <li>Fiche de solution et découverte de GTA VI</li>
+      </ul>
+      Quand on débute, faire des pages sur des sujets que l'on aime, est beaucoup plus agréable et
+      la motivation ne sera qu'augmenter.
+    </ng-content>
+  </app-section-cours>
+</div>
